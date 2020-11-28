@@ -4,21 +4,28 @@ RSpec.describe Link, type: :model do
   # url validations
   it { should have_db_column(:url)  }
   it { should validate_presence_of(:url)  }
-  it { should allow_value("https://devs.gapfish.com").for(:url) }
+  it { should allow_value("https://www.gapfish.com").for(:url) }
   it { should validate_length_of(:url)  }
 
   # code validations
   it { should have_db_column(:code)  }
+  it { should validate_presence_of(:code)  }
   it { should validate_uniqueness_of(:code) }
   it { should validate_length_of(:code)  }
 
   # create a link
   it "is valid with an url" do
     link = Link.new(
-      url: "https://devs.gapfish.com"
+      url: "https://devs.gapfish.com",
+      code: "guhaig9"
       )
     link.save
     expect(link).to be_valid
+  end
+
+  it "is invalid if it doesn't have valid url" do
+    link = Link.new(url: "gapfish.com", code: "guhaig9")
+    expect(link).not_to be_valid
   end
 
 end
