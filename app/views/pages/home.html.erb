@@ -1,0 +1,10 @@
+<main class="container min-vh-100">
+  <header>
+    <h1>Welcome to Gapfish URL Shortener</h1>
+  </header>
+
+  <%= simple_form_for(@link, remote: true) do |f| %>
+    <%= f.input :url %>
+    <%= f.submit %>
+  <% end %>
+</main>
