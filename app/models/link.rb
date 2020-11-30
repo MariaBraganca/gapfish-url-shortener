@@ -1,12 +1,15 @@
 class Link < ApplicationRecord
-
   # validations for url
   validates :url, presence: true
   validates :url, format: URI::regexp(%w[http https])
-  validates :url, length: { maximum: 255, too_long: "255 characters is the maximum allowed"}
+  validates :url, length: { minimum: 8, message: "%{count} characters is the minimum allowed" }
 
   # validations for code
   validates :code, presence: true
   validates :code, uniqueness: true
-  validates :code, length: { maximum: 255, too_long: "%{count} characters is the maximum allowed" }
+
+  # short url
+  def short_url
+    "http://localhost:3000/#{code}"
+  end
 end

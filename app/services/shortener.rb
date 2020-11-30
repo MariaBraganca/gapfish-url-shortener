@@ -24,8 +24,4 @@ class Shortener
     SecureRandom.uuid[0..6]
   end
 
-  # def short
-  #   Rails.application.routes.url_helpers.short_url(code: code)
-  # end
-
 end

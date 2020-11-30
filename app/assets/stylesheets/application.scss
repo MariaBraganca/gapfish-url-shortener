@@ -1,1 +1,11 @@
+// external libraries
 @import "bootstrap/scss/bootstrap";
+
+// CSS partials
+@import "components/index";
+
+
+/* Global Styles */
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+}

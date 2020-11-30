@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   post '/links', to: 'links#create'
+
+  get '/:code', to: 'links#show'
 end
