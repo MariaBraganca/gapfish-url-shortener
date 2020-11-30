@@ -1,0 +1,12 @@
+$gapfish: #0567a4;
+
+.btn-submit {
+  background-color: $gapfish;
+  color: white;
+  height: 50px;
+  transition: background 0.5s ease;
+}
+.btn-submit:hover {
+  background-color: darken($gapfish, 5%);
+  color: white;
+}

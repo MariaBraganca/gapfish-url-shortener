@@ -1,10 +1,17 @@
 <main class="container min-vh-100">
-  <header>
-    <h1>Welcome to Gapfish URL Shortener</h1>
+  <header class="my-5 text-center">
+    <h1>Welcome to the <b>URL Shortener</b> challenge!</h1>
   </header>
 
   <%= simple_form_for(@link, remote: true) do |f| %>
-    <%= f.input :url %>
-    <%= f.submit %>
+    <%= f.input :url,
+                label: false,
+                placeholder: 'Shorten your url',
+                minlength: 8,
+                require: true %>
+    <%= f.submit value: 'Shorten', class: 'btn btn-submit w-100' %>
   <% end %>
+
+  <div class="my-5" id="show-link"></div>
+
 </main>

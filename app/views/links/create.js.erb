@@ -1,3 +1,7 @@
-var code = "<%= @link.code %>"
+// div content
+var element = document.getElementById('show-link');
 
-console.log(code)
+var html = "<%= j render 'link', link: @link.short_url %>";
+
+element.innerHTML = html
+

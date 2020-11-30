@@ -11,10 +11,9 @@ RSpec.describe Link, type: :model do
   it { should have_db_column(:code)  }
   it { should validate_presence_of(:code)  }
   it { should validate_uniqueness_of(:code) }
-  it { should validate_length_of(:code)  }
 
   # create a link
-  it "is valid with an url" do
+  it "is valid with an url and code" do
     link = Link.new(
       url: "https://devs.gapfish.com",
       code: "guhaig9"
@@ -23,7 +22,7 @@ RSpec.describe Link, type: :model do
     expect(link).to be_valid
   end
 
-  it "is invalid if it doesn't have valid url" do
+  it "is invalid if it doesn't have a proper url format" do
     link = Link.new(url: "gapfish.com", code: "guhaig9")
     expect(link).not_to be_valid
   end
