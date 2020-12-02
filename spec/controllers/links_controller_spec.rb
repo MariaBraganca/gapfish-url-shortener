@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe LinksController, type: :controller do
 
   it "can generate a link provided by user" do
-    url = "https://devs.gapfish.com"
+    url = "https://www.gapfish.com"
 
     request.env["HTTP_ACCEPT"] = "text/javascript"
 
