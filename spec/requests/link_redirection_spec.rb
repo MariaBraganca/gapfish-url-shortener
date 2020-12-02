@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Link redirection", type: :request do
 
   it "redirects a short url to the original url" do
-    url = "https://devs.gapfish.com"
+    url = "https://www.gapfish.com"
     shortener = Shortener.new(url)
     link = shortener.generate_link
 

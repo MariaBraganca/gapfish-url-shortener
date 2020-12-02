@@ -15,7 +15,7 @@ RSpec.describe Link, type: :model do
   # create a link
   it "is valid with an url and code" do
     link = Link.new(
-      url: "https://devs.gapfish.com",
+      url: "https://www.gapfish.com",
       code: "guhaig9"
       )
     link.save
