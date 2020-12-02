@@ -1,17 +1,21 @@
 <main class="container min-vh-100">
+  <!-- ****** HEADER ****** -->
   <header class="my-5 text-center">
-    <h1>Welcome to the <b>URL Shortener</b> challenge!</h1>
+    <h1>Welcome to the <b>URL Shortener</b> coding challenge!</h1>
   </header>
 
-  <%= simple_form_for(@link, remote: true) do |f| %>
-    <%= f.input :url,
-                label: false,
-                placeholder: 'Shorten your url',
-                minlength: 8,
-                require: true %>
-    <%= f.submit value: 'Shorten', class: 'btn btn-submit w-100' %>
-  <% end %>
+  <!-- ****** FORM ****** -->
+  <section id="form">
+    <%= simple_form_for(@link, remote: true) do |f| %>
+      <%= f.input :url,
+                  label: false,
+                  placeholder: 'Shorten your url',
+                  minlength: 11,
+                  require: true %>
+      <%= f.submit value: 'Shorten', class: 'btn btn-submit w-100' %>
+    <% end %>
+  </section>
 
-  <div class="my-5" id="show-link"></div>
-
+  <!-- ****** OUTPUT ****** -->
+  <section class="my-5" id="output"></section>
 </main>

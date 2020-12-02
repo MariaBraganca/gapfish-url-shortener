@@ -7,16 +7,9 @@ class Shortener
     @link_model = link_model
   end
 
-  # generate a link instance
+  # generates a link instance
   def generate_link
     link_model.create(url: url, code: code)
-  end
-
-  def code
-    loop do
-      code = get_new_code
-      break code unless link_model.exists?(code: get_new_code)
-    end
   end
 
   # generates a new code, example: "guhaig9"
@@ -24,4 +17,11 @@ class Shortener
     SecureRandom.uuid[0..6]
   end
 
+  # checks if code is unique
+  def code
+    loop do
+      code = get_new_code
+      break code unless link_model.exists?(code: get_new_code)
+    end
+  end
 end
