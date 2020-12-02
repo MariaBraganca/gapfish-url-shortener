@@ -1,8 +1,8 @@
 class Link < ApplicationRecord
   # validations for url
   validates :url, presence: true
-  validates :url, format: URI::regexp(%w[http https])
-  validates :url, length: { minimum: 8, message: "%{count} characters is the minimum allowed" }
+  validates :url, url: true
+  validates :url, length: { minimum: 11, message: "%{count} characters is the minimum allowed" }
 
   # validations for code
   validates :code, presence: true
