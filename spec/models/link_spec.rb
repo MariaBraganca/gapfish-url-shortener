@@ -13,7 +13,7 @@ RSpec.describe Link, type: :model do
   it { should validate_uniqueness_of(:code) }
 
   # create a link
-  it "is valid with an url and code" do
+  it "is valid with a proper formated url and code" do
     link = Link.new(
       url: "https://www.gapfish.com",
       code: "guhaig9"
@@ -22,9 +22,13 @@ RSpec.describe Link, type: :model do
     expect(link).to be_valid
   end
 
-  it "is invalid if it doesn't have a proper url format" do
-    link = Link.new(url: "gapfish.com", code: "guhaig9")
-    expect(link).not_to be_valid
+  it "generates a link path with localhost and respective code" do
+    link = Link.new(
+      url: "https://www.gapfish.com",
+      code: "guhaig9"
+      )
+    link.save
+    expect(link.short_url).to eq("http://localhost:3000/#{link.code}")
   end
 
 end
