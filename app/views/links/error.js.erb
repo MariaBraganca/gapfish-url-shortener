@@ -1,0 +1,6 @@
+// div content
+var element = document.getElementById('output');
+
+var message = '<%= @link.errors.full_messages.join(". ") << ". " %>';
+
+element.innerHTML = message;
